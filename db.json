@@ -1,0 +1,62 @@
+{
+  "conversion": [
+    {
+      "base": "USD",
+      "rates": {
+        "EUR": 0.948434,
+        "GBP": 0.795324,
+        "USD": 1,
+        "CNY": 6.6085
+      }
+    },
+    {
+      "base": "EUR",
+      "rates": {
+        "USD": 1.0543696,
+        "GBP": 0.838565,
+        "EUR": 1,
+        "CNY": 6.967802
+      }
+    },
+    {
+      "base": "GBP",
+      "rates": {
+        "USD": 1.2573492,
+        "EUR": 1.1925127,
+        "GBP": 1,
+        "CNY": 8.309192
+      }
+    },
+    {
+      "base": "CNY",
+      "rates": {
+        "USD": 0.1513203,
+        "EUR": 0.1435173,
+        "GBP": 0.1203486,
+        "CNY": 1
+      }
+    }
+  ],
+  "currency": [
+    {
+      "ISOcode": "EUR",
+      "currency": "Euro (€)",
+      "country": "EU"
+    },
+    {
+      "ISOcode": "USD",
+      "currency": "US-Dollar ($)",
+      "country": "USA"
+    },
+    {
+      "ISOcode": "GBP",
+      "currency": "Pound Sterling (£)",
+      "country": "GB"
+    },
+    {
+      "ISOcode": "CNY",
+      "currency": "Chinese Yuan (元)",
+      "country": "China"
+    }
+  ]
+}
