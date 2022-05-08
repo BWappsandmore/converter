@@ -1,62 +1,258 @@
 {
-  "conversion": [
-    {
-      "base": "USD",
-      "rates": {
-        "EUR": 0.948434,
-        "GBP": 0.795324,
-        "USD": 1,
-        "CNY": 6.6085
-      }
-    },
-    {
-      "base": "EUR",
-      "rates": {
-        "USD": 1.0543696,
-        "GBP": 0.838565,
-        "EUR": 1,
-        "CNY": 6.967802
-      }
-    },
-    {
-      "base": "GBP",
-      "rates": {
-        "USD": 1.2573492,
-        "EUR": 1.1925127,
-        "GBP": 1,
-        "CNY": 8.309192
-      }
-    },
-    {
-      "base": "CNY",
-      "rates": {
-        "USD": 0.1513203,
-        "EUR": 0.1435173,
-        "GBP": 0.1203486,
-        "CNY": 1
-      }
-    }
-  ],
   "currency": [
     {
+      "id": 1,
       "ISOcode": "EUR",
       "currency": "Euro (€)",
       "country": "EU"
     },
     {
+      "id": 2,
       "ISOcode": "USD",
       "currency": "US-Dollar ($)",
       "country": "USA"
     },
     {
+      "id": 3,
       "ISOcode": "GBP",
       "currency": "Pound Sterling (£)",
       "country": "GB"
     },
     {
+      "id": 4,
       "ISOcode": "CNY",
       "currency": "Chinese Yuan (元)",
       "country": "China"
+    },
+    {
+      "id": 5,
+      "ISOcode": "JPY",
+      "currency": "Japanese Yen (¥)",
+      "country": "Japan"
+    },
+    {
+      "currency": "Indian Rupee (₹)",
+      "ISOcode": "INR",
+      "country": "India",
+      "id": 6
+    }
+  ],
+  "rates": [
+    {
+      "id": 1,
+      "id_base": 1,
+      "id_second": 1,
+      "rate": 1
+    },
+    {
+      "id": 2,
+      "id_base": 1,
+      "id_second": 2,
+      "rate": 1.0565519
+    },
+    {
+      "id": 3,
+      "id_base": 1,
+      "id_second": 3,
+      "rate": 0.85
+    },
+    {
+      "id": 4,
+      "id_base": 1,
+      "id_second": 4,
+      "rate": 7.048364
+    },
+    {
+      "id": 5,
+      "id_base": 2,
+      "id_second": 1,
+      "rate": 0.95
+    },
+    {
+      "id": 6,
+      "id_base": 2,
+      "id_second": 2,
+      "rate": 1
+    },
+    {
+      "id": 7,
+      "id_base": 2,
+      "id_second": 3,
+      "rate": 0.81
+    },
+    {
+      "id": 8,
+      "id_base": 2,
+      "id_second": 4,
+      "rate": 6.6711
+    },
+    {
+      "id": 9,
+      "id_base": 3,
+      "id_second": 1,
+      "rate": 1.1703348
+    },
+    {
+      "id": 10,
+      "id_base": 3,
+      "id_second": 2,
+      "rate": 1.2352587
+    },
+    {
+      "id": 11,
+      "id_base": 3,
+      "id_second": 3,
+      "rate": 1
+    },
+    {
+      "id": 12,
+      "id_base": 3,
+      "id_second": 4,
+      "rate": 8.234852
+    },
+    {
+      "id": 13,
+      "id_base": 4,
+      "id_second": 1,
+      "rate": 0.14
+    },
+    {
+      "id": 14,
+      "id_base": 4,
+      "id_second": 2,
+      "rate": 0.1499
+    },
+    {
+      "id": 15,
+      "id_base": 4,
+      "id_second": 3,
+      "rate": 0.12
+    },
+    {
+      "id": 16,
+      "id_base": 4,
+      "id_second": 4,
+      "rate": 1
+    },
+    {
+      "id": 17,
+      "id_base": 1,
+      "id_second": 5,
+      "rate": 137.79725
+    },
+    {
+      "id": 18,
+      "id_base": 2,
+      "id_second": 5,
+      "rate": 130.42165
+    },
+    {
+      "id": 19,
+      "id_base": 3,
+      "id_second": 5,
+      "rate": 161.04562
+    },
+    {
+      "id": 20,
+      "id_base": 4,
+      "id_second": 5,
+      "rate": 19.550247
+    },
+    {
+      "id": 21,
+      "id_base": 5,
+      "id_second": 5,
+      "rate": 1
+    },
+    {
+      "id": 22,
+      "id_base": 5,
+      "id_second": 1,
+      "rate": 0.007257
+    },
+    {
+      "id": 23,
+      "id_base": 5,
+      "id_second": 2,
+      "rate": 0.0076674
+    },
+    {
+      "id": 24,
+      "id_base": 5,
+      "id_second": 3,
+      "rate": 0.01
+    },
+    {
+      "id": 25,
+      "id_base": 5,
+      "id_second": 4,
+      "rate": 0.0511502
+    },
+    {
+      "id_base": 1,
+      "id_second": 6,
+      "rate": 81.23,
+      "id": 26
+    },
+    {
+      "id_base": 3,
+      "id_second": 6,
+      "rate": 95.05699,
+      "id": 27
+    },
+    {
+      "id_base": 4,
+      "id_second": 6,
+      "rate": 11.54,
+      "id": 28
+    },
+    {
+      "id_base": 2,
+      "id_second": 6,
+      "rate": 76.98,
+      "id": 29
+    },
+    {
+      "id_base": 5,
+      "id_second": 6,
+      "rate": 0.59,
+      "id": 30
+    },
+    {
+      "id_base": 6,
+      "id_second": 6,
+      "rate": 1,
+      "id": 31
+    },
+    {
+      "id_base": 6,
+      "id_second": 1,
+      "rate": 0.01231,
+      "id": 32
+    },
+    {
+      "id_base": 6,
+      "id_second": 2,
+      "rate": 0.01299,
+      "id": 33
+    },
+    {
+      "id_base": 6,
+      "id_second": 3,
+      "rate": 0.01,
+      "id": 34
+    },
+    {
+      "id_base": 6,
+      "id_second": 4,
+      "rate": 0.08663,
+      "id": 35
+    },
+    {
+      "id_base": 6,
+      "id_second": 5,
+      "rate": 1.6942,
+      "id": 36
     }
   ]
 }

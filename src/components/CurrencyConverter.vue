@@ -22,7 +22,12 @@
                       min="1"
                       class="form-control"
                       v-model="baseValue"
-                      @keyup="getRate(selectedBase, selectedConverted)"
+                      @keyup="
+                        getRate(
+                          this.getIdForCurrency(selectedBase),
+                          this.getIdForCurrency(selectedConverted)
+                        )
+                      "
                     />
                   </div>
                 </td>
@@ -52,7 +57,12 @@
                       min="0"
                       class="form-control"
                       v-model="convertedValue"
-                      @keyup="getOppositeRate(selectedBase, selectedConverted)"
+                      @keyup="
+                        this.getOppositeRate(
+                          this.getIdForCurrency(selectedConverted),
+                          this.getIdForCurrency(selectedBase)
+                        )
+                      "
                     />
                   </div>
                 </td>
@@ -98,9 +108,9 @@ export default {
     return {
       // boolean variables
       currencyLoaded: Boolean,
-      conversionLoaded: Boolean,
+      ratesLoaded: Boolean,
 
-      //modal variables - init values
+      //v-model variables - init values
       baseValue: 1,
       convertedValue: -1,
       currencyRate: Number,
@@ -109,7 +119,7 @@ export default {
 
       // api response data arrays
       currency: [],
-      conversion: [],
+      rates: [],
     };
   },
   created() {
@@ -126,30 +136,37 @@ export default {
       });
     },
     async getRates() {
-      await this.axios.get("/conversion").then((result) => {
-        this.conversion = result.data;
-        this.conversionLoaded = true;
-        // perform initial conversion
-        this.getRate(this.selectedBase, this.selectedConverted);
+      await this.axios.get("/rates/").then((result) => {
+        this.rates = result.data;
+        this.ratesLoaded = true;
+        // perform initial rate
+        this.getRate(
+          this.getIdForCurrency(this.selectedBase),
+          this.getIdForCurrency(this.selectedConverted)
+        );
       });
     },
-    // ------ helper methods -----------
-    getRate(from, to) {
-      // extract only part of object which holds the needed informations
-      this.currencyRate = this.conversion
-        .filter((item) => item.base == from)
-        .map((rate) => rate.rates[to]);
-      // perform the conversion
+
+    //------ helper methods -----------
+    getIdForCurrency(code) {
+      return this.currency
+        .filter((item) => item.ISOcode == code)
+        .map((curr) => curr.id);
+    },
+
+    getRate(base, second) {
+      this.currencyRate = this.rates
+        .filter((item) => item.id_base == base && item.id_second == second)
+        .map((output) => output.rate);
       this.convertedValue = (
         Math.round(this.baseValue * this.currencyRate * 100) / 100
       ).toFixed(2);
     },
-    getOppositeRate(from, to) {
-      // extract only part of object which holds the needed informations
-      this.currencyRate = this.conversion
-        .filter((item) => item.base == to)
-        .map((rate) => rate.rates[from]);
-      // perform the conversion
+
+    getOppositeRate(base, second) {
+      this.currencyRate = this.rates
+        .filter((item) => item.id_base == base && item.id_second == second)
+        .map((output) => output.rate);
       this.baseValue = (
         Math.round(this.convertedValue * this.currencyRate * 100) / 100
       ).toFixed(2);
@@ -158,13 +175,16 @@ export default {
       switch (location) {
         case "base":
           this.selectedBase = event.target.value;
-          this.getRate(this.selectedBase, this.selectedConverted);
           break;
         case "converted":
           this.selectedConverted = event.target.value;
-          this.getRate(this.selectedBase, this.selectedConverted);
       }
+      this.getRate(
+        this.getIdForCurrency(this.selectedBase),
+        this.getIdForCurrency(this.selectedConverted)
+      );
     },
+
     redirectTo(toPath) {
       this.$router.push({ path: toPath });
     },
